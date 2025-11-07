@@ -12,11 +12,9 @@ data = {
 
 df = pd.DataFrame(data)
 
-x = df['Hours_Studied']
-y = df['Score']
-
-print(f"{x=}")
-print(f"{y=}")
+# Use [[ double square brackets with Pandas library, to have the data returned as a dataframe, not a series.
+x = df[['Hours_Studied']]
+y = df[['Score']]
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
@@ -24,5 +22,7 @@ model = LinearRegression()
 model.fit(x_train, y_train)
 
 y_pred = model.predict(x_test)
+
+print(f"{x_test=}")
 print(f"{y_pred=}")
 
